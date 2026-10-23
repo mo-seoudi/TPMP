@@ -1,6 +1,8 @@
 # Workflows & Approvals — Module Contract (Architecture Baseline)
 **Status:** Architecture approved; detailed functional/UI/API specification not yet approved. **Decision references:** 03,10,13,14,18,20.
 
+> **Amendments (2026-10-23):** A-03, D-24 in `../16_DECISION_AMENDMENTS.md` change phasing for this module; wording pending owner review.
+
 ## Required capabilities and invariants
 Reusable versioned multistage engine with organization binding, reviewer rules, eligibility and SoD; append-only decisions; delegation/reassignment/escalation; event/outbox notifications; owning module controls activation; full timeline and next actor.
 

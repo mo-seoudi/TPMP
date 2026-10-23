@@ -1,6 +1,8 @@
 # Dashboard & Reporting — Module Contract (Architecture Baseline)
 **Status:** Architecture approved; detailed functional/UI/API specification not yet approved. **Decision references:** 17,18.
 
+> **Amendments (2026-10-23):** A-04 in `../16_DECISION_AMENDMENTS.md` change phasing for this module; wording pending owner review.
+
 ## Required capabilities and invariants
 Live operational dashboards and controlled projections; versioned metrics, tenant-specific policies, snapshot date versus calculated date, provenance, reconciliation and freshness; current authorization even for historical reports; exports permission-controlled.
 

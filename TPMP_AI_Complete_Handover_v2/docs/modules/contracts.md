@@ -1,6 +1,8 @@
 # Contracts Management — Module Contract (Architecture Baseline)
 **Status:** Architecture approved; detailed functional/UI/API specification not yet approved. **Decision references:** 11,12,18.
 
+> **Amendments (2026-10-23):** A-05 in `../16_DECISION_AMENDMENTS.md` change phasing for this module; wording pending owner review.
+
 ## Required capabilities and invariants
 Immutable original agreements, amendments, side letters and schedules; legal parties, covered engagements; versioned effective consolidated terms with provenance; obligations, occurrences, milestones, financial terms; expiry/renewal; explicit linked but independent compliance mappings.
 

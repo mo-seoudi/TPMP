@@ -1,6 +1,8 @@
 # Organizations & Suppliers — Module Contract (Architecture Baseline)
 **Status:** Architecture approved; detailed functional/UI/API specification not yet approved. **Decision references:** 01,02,03,04,15,16.
 
+> **Amendments (2026-10-23):** A-05, D-23 in `../16_DECISION_AMENDMENTS.md` change phasing for this module; wording pending owner review.
+
 ## Required capabilities and invariants
 Stable legal entities, hierarchy, operating units, locations, explicit membership scopes; global supplier matching with reviewed merges; independent client relationship/engagement; shared supplier-maintained profile and client adoption/field decisions.
 

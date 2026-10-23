@@ -1,4 +1,7 @@
 # TPMP — Complete AI Development Handover v2.0
+
+> **Path note (2026-10-23):** `README.md`, `AGENTS.md` and `CLAUDE.md` sit at the repository root, but the `docs/`, `tasks/`, `sources/` and `implementation/` folders they reference live under `TPMP_AI_Complete_Handover_v2/`. Read `docs/...` as `TPMP_AI_Complete_Handover_v2/docs/...`. Amendments from the architecture review are in `TPMP_AI_Complete_Handover_v2/docs/16_DECISION_AMENDMENTS.md` (branch `claude-v1.0`, wording pending owner review).
+
 **Status: reference baseline, 23 October 2026. No deployment.**
 
 ## How to use this package

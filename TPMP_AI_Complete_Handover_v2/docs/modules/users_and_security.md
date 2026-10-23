@@ -1,6 +1,8 @@
 # Users & Security — Module Contract (Architecture Baseline)
 **Status:** Architecture approved; detailed functional/UI/API specification not yet approved. **Decision references:** 01,14,15,16,20.
 
+> **Amendments (2026-10-23):** D-22, D-23 in `../16_DECISION_AMENDMENTS.md` change phasing for this module; wording pending owner review.
+
 ## Required capabilities and invariants
 Supabase Auth, multi-organization membership, hybrid RBAC, explicit typed scopes, policy-authorized hierarchy expansion, versioned grants, RLS and server authorization; supplier roles plus relationship grants; no blanket platform-admin client access; invitation and revocation history.
 

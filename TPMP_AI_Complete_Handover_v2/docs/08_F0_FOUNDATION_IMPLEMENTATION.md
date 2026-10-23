@@ -24,5 +24,17 @@ Business state, audit and outbox event commit in one transaction. Workers claim 
 - Concurrent two-session, rollback, replay/idempotency and RLS/privilege integration tests not yet run.
 - Organization FKs to be introduced after F1; no staging/production deployment.
 
+## Additional review findings (2026-10-23)
+- Outbox poison messages: retry limit enforced only in `fail_message`; expired-lease reclaim loops forever on a crashing worker (dead-letter on reclaim needed).
+- Completed outbox rows and payloads have no purge/retention path.
+- `audit.append_event` serializes all writes of a stream on one segment row until commit (see A-01).
+- `verify_segment` rebuilds bytes from `jsonb::text`/timestamp text; verify stored canonical bytes instead (A-01).
+- No UPDATE/DELETE-blocking triggers on audit tables; immutability currently rests on privileges only (A-01).
+- No segment provisioning/rotation: appends fail closed when no open segment exists.
+- Tests run as a privileged role and check only `anon`/`authenticated`; role-based, `service_role`, `PUBLIC`, worker-role and concurrency tests missing.
+- Actor attribution to be resolved by D-22 (JWT-derived actor in `SECURITY DEFINER` commands).
+
+Amended F0 direction: A-01 and D-22 in `16_DECISION_AMENDMENTS.md`.
+
 ## Required next step
 Review archive SQL line by line, reconcile against target table inventory, run clean disposable Supabase/PostgreSQL tests, fix security blockers, establish external checkpoint design and test harness. Do not promote to staging before review gates are passed.

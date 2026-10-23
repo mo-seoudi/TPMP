@@ -1,6 +1,8 @@
 # Documents & Compliance — Module Contract (Architecture Baseline)
 **Status:** Architecture approved; detailed functional/UI/API specification not yet approved. **Decision references:** 04,05,06,07,08,18.
 
+> **Amendments (2026-10-23):** A-02, A-05 in `../16_DECISION_AMENDMENTS.md` change phasing for this module; wording pending owner review.
+
 ## Required capabilities and invariants
 Private storage and immutable document versions, metadata/virtual folders, document- and version-specific shares; requirements from versioned templates with exceptions; validity distinct from review; evidence assessments and controlled within-client reuse; expiry/renewal; approved version remains until replaced only while valid.
 

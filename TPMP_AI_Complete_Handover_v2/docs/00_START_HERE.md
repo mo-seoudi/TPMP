@@ -22,6 +22,8 @@ This library is the pre-build source of reference for the independent **Third-Pa
 8. `08_F0_FOUNDATION_IMPLEMENTATION.md` — audit/outbox baseline and gaps.
 9. `09_BUILD_ROADMAP_AND_ACCEPTANCE.md` — sequenced build plan and tests.
 10. `10_OPEN_QUESTIONS_AND_CHANGE_LOG.md` — unresolved choices and decision process.
+11. `16_DECISION_AMENDMENTS.md` — amendments A-01…A-05 and new decisions D-22…D-24 (2026-10-23; wording pending owner review). Read with `02`/`11`.
+12. `17_TENANCY_AND_OWNERSHIP_SPEC.md` — DRAFT ownership classes (PROPOSED).
 
 ## Project workstreams
 00 Project Hub; 01 Architecture & Data Model; 02 UI/UX & Design System; 03 Organizations & Suppliers; 04 Personnel Management; 05 Documents & Compliance; 06 Workflows & Approvals; 07 Contracts Management; 08 Users & Security; 09 Dashboard & Reporting; 10 Development & Deployment.

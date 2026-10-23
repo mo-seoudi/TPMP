@@ -10,4 +10,6 @@
 - [UI/UX & Design System](modules/ui_ux.md): approved invariants, boundaries, unresolved detail.
 - [Development & Deployment](modules/development.md): approved invariants, boundaries, unresolved detail.
 
+Related: [Decision amendments](16_DECISION_AMENDMENTS.md) · [Tenancy and ownership spec — draft](17_TENANCY_AND_OWNERSHIP_SPEC.md).
+
 Each brief is an architectural baseline, **not** an exhaustive developer-ready SRS. Do not fabricate fields or workflows beyond approved statements.

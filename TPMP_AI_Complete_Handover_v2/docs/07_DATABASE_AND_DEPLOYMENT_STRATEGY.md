@@ -16,6 +16,8 @@ Shared supplier registry remains global. Tenant-owned relationships, engagements
 One ordered Supabase migration history per environment; module-tagged migration manifest, dependencies and ownership; expand/transition/contract for breaking changes; additive first, backfill, consumer transition, validation, then constraint/removal. Review SQL, RLS, privileges, concurrency, lifecycle and backward compatibility before release. Never edit an already applied migration in place; create a new migration.
 
 ## Dependency sequence
+> **Amended by D-24 (2026-10-23, wording pending owner review):** the minimal approval primitive (A-03) is built before the document/profile phase. The sequence below is the original and is otherwise unchanged; see `09` for the current phase order.
+
 F0 database schemas/privileges/audit/outbox primitives -> F1 organizations/hierarchy/memberships -> security/identity -> supplier registry/relationships/engagements -> documents/compliance foundations -> workflow definitions -> operational profile/personnel/evidence/contract lifecycles -> automation/integration -> reporting. Actual modules may be developed in smaller dependency-ordered slices.
 
 ## Database conventions

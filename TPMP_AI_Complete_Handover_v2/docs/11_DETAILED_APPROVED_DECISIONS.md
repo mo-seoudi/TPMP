@@ -1,6 +1,8 @@
 # Expanded Approved Architecture and Core Data Model Decisions
 **Authority:** This expands the approved outcomes in `02_DECISION_REGISTER.md`. Option C was explicitly approved for every Core Data Model decision 01–21. These are architectural contracts, not proof that the tables exist.
 
+> **Amendments (2026-10-23):** Amended and new decisions are recorded in `16_DECISION_AMENDMENTS.md` (A-01…A-05, D-22…D-24; wording pending owner review). Original text below is preserved. Cite principles as **P-01…P-16** and decisions as **D-01…D-21**.
+
 ## Foundational architecture decisions (01–16)
 1. **Shared supplier identity:** one reusable supplier identity across independent clients; relationship/compliance decisions always isolated.
 2. **Hybrid supplier profile ownership:** supplier-maintained shared data and independent client adoption/approval snapshots.
@@ -28,6 +30,7 @@
 **Non-negotiable:** Implementation must not silently weaken the rule; any exceptions require explicit decision amendment.
 
 ### Decision 02 — Supplier identity matching (Option C, approved)
+**Amended by A-05 — see `16_DECISION_AMENDMENTS.md`.**
 **Required behavior:** Jurisdiction-aware identifiers, matching candidates, verified reviewed merges, alias/name history; never silently merge client-specific records or relationships.
 
 **Named tables/structures:** `registry.supplier_identifiers; supplier_identity_candidates; supplier_identity_reviews; supplier_identity_merges; supplier_names`.
@@ -56,6 +59,7 @@
 **Non-negotiable:** Implementation must not silently weaken the rule; any exceptions require explicit decision amendment.
 
 ### Decision 06 — Evidence assessment reuse (Option C, approved)
+**Amended by A-05 — see `16_DECISION_AMENDMENTS.md`.**
 **Required behavior:** Within-client controlled reuse only if exact immutable document version, equivalent criteria, coverage, validity and policy allow; independent assignment outcome and audit; no automatic cross-client approval transfer.
 
 **Named tables/structures:** `compliance.evidence_assessments; evidence_assessment_criteria; evidence_approval_reuses; requirement_assessments; evidence_validity_events; evidence_links; requirement_assessment_evidence`.
@@ -77,6 +81,7 @@
 **Non-negotiable:** Implementation must not silently weaken the rule; any exceptions require explicit decision amendment.
 
 ### Decision 09 — Personnel identity (Option C, approved)
+**Amended by A-05 — see `16_DECISION_AMENDMENTS.md`.**
 **Required behavior:** Supplier-scoped personnel records; optional verified cross-supplier linking only after controlled review; never silently merge or share sensitive personnel data, evidence or client approvals.
 
 **Named tables/structures:** `registry.personnel; personnel_profile_versions; identity.personnel_link_cases; personnel_link_verifications; personnel_identity_links; personnel_link_access_events`.
@@ -91,6 +96,7 @@
 **Non-negotiable:** Implementation must not silently weaken the rule; any exceptions require explicit decision amendment.
 
 ### Decision 11 — Contracts and effective terms (Option C, approved)
+**Amended by A-05 — see `16_DECISION_AMENDMENTS.md`.**
 **Required behavior:** Original agreements and amendments immutable; consolidated operational effective-term snapshots versioned with source provenance, dates and supersession; legal ambiguity reviewed, not silently overwritten. Obligations, milestones and financial terms separately versioned.
 
 **Named tables/structures:** `contracts.agreements; agreement_parties; agreement_engagements; agreement_versions; agreement_amendments; agreement_term_definitions; agreement_term_revisions; agreement_effective_snapshots; effective_snapshot_terms; agreement_effective_current; contract_obligations; obligation_versions; obligation_occurrences; obligation_performance_events; contract_milestones; contract_milestone_events; financial_term_versions`.
@@ -105,6 +111,7 @@
 **Non-negotiable:** Implementation must not silently weaken the rule; any exceptions require explicit decision amendment.
 
 ### Decision 13 — Shared workflow engine (Option C, approved)
+**Amended by A-03 — see `16_DECISION_AMENDMENTS.md`.**
 **Required behavior:** Reusable versioned definitions/templates, organization-scoped bindings and reviewer rules, pinned execution versions, append-only decisions, separation of duties, reviewer eligibility at assignment and decision. Engine reviews; owning module activates.
 
 **Named tables/structures:** `workflow.workflow_definitions; workflow_definition_versions; workflow_templates; workflow_template_versions; workflow_definition_sources; workflow_stage_definitions; workflow_stage_transitions; workflow_bindings; workflow_binding_versions; reviewer_assignment_rules; workflow_instances; workflow_stage_instances; workflow_review_tasks; workflow_decisions; automation.domain_events; outbox_messages; notification_rules; notification_deliveries; scheduled_jobs; audit.audit_events`.
@@ -112,6 +119,7 @@
 **Non-negotiable:** Implementation must not silently weaken the rule; any exceptions require explicit decision amendment.
 
 ### Decision 14 — Delegation, reassignment and escalation (Option C, approved)
+**Amended by A-03 — see `16_DECISION_AMENDMENTS.md`.**
 **Required behavior:** Controlled time-limited delegation, authorized reassignment and escalation; grantor cannot delegate authority they lack; delegate needs own eligibility; prevent circular delegation, recheck on decision, revoke immediately, idempotent escalation and full history.
 
 **Named tables/structures:** `workflow.reviewer_delegations; reviewer_delegation_scopes; reviewer_delegation_events; review_task_assignments; review_task_reassignment_events; workflow_escalation_rules; workflow_escalation_events`.
@@ -133,6 +141,7 @@
 **Non-negotiable:** Implementation must not silently weaken the rule; any exceptions require explicit decision amendment.
 
 ### Decision 17 — Reporting architecture (Option C, approved)
+**Amended by A-04 — see `16_DECISION_AMENDMENTS.md`.**
 **Required behavior:** Live operational queries plus controlled versioned metric definitions, projection runs with source watermark, historical snapshots, tenant-specific policies, reconciliations, freshness, source provenance; current authorization applies to historical results, prevent aggregate inference.
 
 **Named tables/structures:** `reporting.metric_definitions; metric_definition_versions; organization_metric_policies; projection_definitions; projection_runs; metric_snapshots; projection_reconciliations`.
@@ -140,6 +149,7 @@
 **Non-negotiable:** Implementation must not silently weaken the rule; any exceptions require explicit decision amendment.
 
 ### Decision 18 — Temporal conventions (Option C, approved)
+**Amended by A-02 — see `16_DECISION_AMENDMENTS.md`.**
 **Required behavior:** Module-owned typed immutable version tables, recorded/system versus business-effective time, submitted/approved versus activated, current pointers, supersession, row revision and compare-and-swap; half-open intervals, late/backdated corrections preserve as-known history.
 
 **Named tables/structures:** `uuid identifiers; unique(entity_id, version_number); timestamptz; temporal exclusions where applicable; immutable events; CAS updates`.
@@ -147,6 +157,7 @@
 **Non-negotiable:** Implementation must not silently weaken the rule; any exceptions require explicit decision amendment.
 
 ### Decision 19 — Migration strategy (Option C, approved)
+**Amended by D-24 — see `16_DECISION_AMENDMENTS.md`.**
 **Required behavior:** One coordinated Supabase migration history, dependency-ordered module packages, explicit schema contracts, expand-transition-contract for breaking changes, RLS and compatibility tests, isolated dev/staging/prod, approval gates.
 
 **Named tables/structures:** `F0 foundation → organization/identity/security → relationships → document/compliance foundations → workflows → operational lifecycles → integration/automation → reporting`.
@@ -154,6 +165,7 @@
 **Non-negotiable:** Implementation must not silently weaken the rule; any exceptions require explicit decision amendment.
 
 ### Decision 20 — Audit ledger (Option C, approved)
+**Amended by A-01 — see `16_DECISION_AMENDMENTS.md`.**
 **Required behavior:** Central append-only audit events plus module-specific immutable business history; trusted writes, actor/action/resource/tenant/correlation attribution, integrity verification, privacy minimization, controlled retention, legal holds, privileged access audit.
 
 **Named tables/structures:** `audit.audit_events; audit.integrity_checkpoints; audit.integrity_verification_runs; audit.retention_policies; audit.legal_holds`.
@@ -161,6 +173,7 @@
 **Non-negotiable:** Implementation must not silently weaken the rule; any exceptions require explicit decision amendment.
 
 ### Decision 21 — Audit segments and erasure (Option C, approved)
+**Amended by A-01 — see `16_DECISION_AMENDMENTS.md`.**
 **Required behavior:** Segmented hash chains, serialized per-segment append, sealed terminal hashes and independently protected checkpoints; legal-hold-aware retention; minimize sensitive hashed payloads; documented redaction/cryptographic erasure with protected evidence.
 
 **Named tables/structures:** `audit.audit_segments; audit.audit_events; integrity_checkpoints; integrity_verification_runs; retention_policies; legal_holds; retention_execution_events`.

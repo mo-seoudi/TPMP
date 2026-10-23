@@ -1,5 +1,5 @@
 # UI/UX & Design System — Module Contract (Architecture Baseline)
-**Status:** Architecture approved; detailed functional/UI/API specification not yet approved. **Decision references:** Foundational 14,16.
+**Status:** Architecture approved; detailed functional/UI/API specification not yet approved. **Decision references:** P-14, P-16.
 
 ## Required capabilities and invariants
 Modern coherent responsive client/supplier experiences, reusable isolated components, page-level composition, consistent tokens/forms/tables/status visuals, preserve approved components when changing parent layout; explicit impact review for changes.

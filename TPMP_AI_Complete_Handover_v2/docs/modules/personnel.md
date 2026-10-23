@@ -1,6 +1,8 @@
 # Personnel Management — Module Contract (Architecture Baseline)
 **Status:** Architecture approved; detailed functional/UI/API specification not yet approved. **Decision references:** 05,09,10,15,16.
 
+> **Amendments (2026-10-23):** A-02, A-05 in `../16_DECISION_AMENDMENTS.md` change phasing for this module; wording pending owner review.
+
 ## Required capabilities and invariants
 Supplier-owned personnel profiles and immutable versions; client-specific assignments to engagements and locations; role/category-driven requirements; proposal, review, impact, compliance gate, activation, history; optional controlled identity link across suppliers.
 
