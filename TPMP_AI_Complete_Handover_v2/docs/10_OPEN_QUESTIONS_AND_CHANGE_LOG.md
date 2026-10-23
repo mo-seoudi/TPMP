@@ -52,3 +52,4 @@
 ## Change log
 - 2026-10-23 — Branch `claude-v1.0`: amendments A-01…A-05 and decisions D-22…D-24 recorded in `16`; draft tenancy specification `17`; roadmap `09` revised; numbering convention P-xx/D-xx adopted; F0 findings added to `08`/`14`; items 11–24 added. Direction approved by owner; wording pending review; no deployment.
 - 2026-10-23 — Reference library v1.0 created, consolidating approved decisions 01–21 and F0 review-only implementation handoff. No additional architecture decision adopted by creating this library.
+- 2026-10-24 — Branch `claude-v1.0`: revised F0 migrations and SQL tests (A-01, D-22); original F0 `claim_messages` defect recorded (found by execution); application shell, CI workflow and Vercel config added. App build and tests not yet verified; see `14`.

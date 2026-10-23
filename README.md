@@ -26,3 +26,11 @@ Explicit latest user approval > numbered approved decisions > module-specific ap
 - `TPMP_Master_AI_Reference_v2.0.docx`: editable consolidated reference for reading.
 
 **Completeness note:** This package consolidates all substantive approved details available in the current project context and attached source material. It is not a verbatim archive of every project conversation. Where original chats are not available, claims of literal exhaustive coverage would be misleading. See `docs/15_SOURCE_COVERAGE_AND_UNCERTAINTY.md`.
+
+## Application and database (branch `claude-v1.0`)
+- `src/` — React + TypeScript (Vite) application shell. No business modules are built; see `src/modules/registry.ts`.
+- `supabase/migrations/` — F0 foundation (audit ledger, outbox), revised per amendments A-01 and D-22.
+- `supabase/tests/` and `scripts/db-test.sh` — SQL tests on a disposable PostgreSQL (`npm run test:db`; needs `psql` and a superuser connection).
+- `npm install && npm run dev` to run the app; copy `.env.example` to `.env.local` first. Only the public anon key is ever used in browser code.
+- `.github/workflows/ci.yml` runs lint, typecheck, unit tests, build and the database suite. `vercel.json` configures a Vite SPA deployment.
+- Status and limits: `TPMP_AI_Complete_Handover_v2/docs/14_IMPLEMENTATION_STATE.md`.

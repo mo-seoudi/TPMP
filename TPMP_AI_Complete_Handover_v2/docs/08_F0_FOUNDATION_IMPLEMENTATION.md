@@ -24,6 +24,9 @@ Business state, audit and outbox event commit in one transaction. Workers claim 
 - Concurrent two-session, rollback, replay/idempotency and RLS/privilege integration tests not yet run.
 - Organization FKs to be introduced after F1; no staging/production deployment.
 
+## Execution result (2026-10-24)
+The original archive was executed on PostgreSQL 16: `claim_messages` failed with `column reference "message_id" is ambiguous`, so the outbox claim path never worked. The revised migrations in `supabase/migrations/` fix it and are covered by `supabase/tests/` and `scripts/db-test.sh`. Supabase-specific behaviour is stood in by `supabase/tests/support/00_supabase_shim.sql` and remains unverified.
+
 ## Additional review findings (2026-10-23)
 - Outbox poison messages: retry limit enforced only in `fail_message`; expired-lease reclaim loops forever on a crashing worker (dead-letter on reclaim needed).
 - Completed outbox rows and payloads have no purge/retention path.

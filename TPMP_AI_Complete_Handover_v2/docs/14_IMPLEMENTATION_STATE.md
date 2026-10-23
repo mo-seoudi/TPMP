@@ -1,9 +1,11 @@
-# TPMP Implementation State — 23 October 2026
+# TPMP Implementation State — updated 24 October 2026 (branch `claude-v1.0`)
+
+> Update 2026-10-24: revised F0 SQL (A-01, D-22) and an application shell now exist on branch `claude-v1.0`. Status below is exact; "verified" means a command was run and its result seen.
 
 | Area | Architecture | Code | Validation | Deployment |
 |---|---|---|---|---|
 | Core Data Model 01–21 | Approved | Not a deployed schema | Design review only | None |
-| F0 Database Foundation | Physical design specified | Review-only SQL archive generated | PostgreSQL/Supabase execution not confirmed | None |
+| F0 Database Foundation | Revised per A-01 and D-22 | `supabase/migrations/` (3 files) and `supabase/tests/` | **Verified on local PostgreSQL 16**: migrations apply on a fresh database; 4 SQL test files and the concurrency script pass (200 parallel claims, no duplicates; 200 concurrent audit appends); deliberate defects were caught. **Not verified**: Supabase itself (roles and `auth.uid()` are stood in by a test shim), worker path, external anchoring (deferred by A-01). Original archive had a runtime defect in `claim_messages` found by execution | None |
 | Organizations and suppliers | Approved high-level architecture | Not started | Not started | None |
 | Personnel | Approved high-level architecture | Not started | Not started | None |
 | Documents/compliance | Approved high-level architecture | Not started | Not started | None |
@@ -11,7 +13,8 @@
 | Contracts | Approved high-level architecture | Not started | Not started | None |
 | Users/security | Approved high-level architecture | Not started | Not started | None |
 | Reporting | Approved high-level architecture | Not started | Not started | None |
-| UI/UX design system | Principles approved | Not started | Not started | None |
+| UI/UX design system | Principles approved | Neutral tokens only (`src/styles`); brand and layouts OPEN | Not started | None |
+| Application shell (React/TS/Vite) | Structure follows proposed IA in `06` | Written: routes, module registry, provisional sign-in, placeholders, unit tests, CI workflow | **Not verified locally** (package registry unreachable from the authoring sandbox). Verification is the first GitHub Actions run | Vercel preview only if connected; no production |
 
 ## F0 known blockers
 - Verify generated SQL in isolated Supabase/PostgreSQL environment.
