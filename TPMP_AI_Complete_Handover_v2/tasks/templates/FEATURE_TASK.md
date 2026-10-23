@@ -1,0 +1,21 @@
+# TPMP Feature Task — Template
+- Task ID:
+- Module / reusable component:
+- Request and business objective:
+- Approved references / decision IDs:
+- Existing behavior to preserve:
+- Exact new behavior:
+- Pages / fields / actions / states:
+- Role and tenant authorization matrix:
+- Data, versioning and audit implications:
+- API and migration impact:
+- Files allowed to change:
+- Explicit exclusions:
+- Acceptance tests (including negative tenant/RLS cases):
+- Regression tests:
+- Open questions:
+- Plan approval (person/date):
+- Implementation branch / commit:
+- Test evidence:
+- Merge approval:
+- Deployment approval (separate):
