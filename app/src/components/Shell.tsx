@@ -1,7 +1,7 @@
 import {useState,type ReactNode} from "react";
-import {LayoutDashboard,Building2,ShieldCheck,Files,ClipboardCheck,GitBranch,ChartColumn,Settings,Menu,X} from "lucide-react";
-export type Page = "dashboard"|"suppliers"|"compliance"|"documents"|"reviews"|"workflows"|"reports"|"settings";
-const nav = [{id:"dashboard",label:"Overview",icon:LayoutDashboard},{id:"suppliers",label:"Suppliers",icon:Building2},{id:"compliance",label:"Compliance",icon:ShieldCheck},{id:"documents",label:"Documents",icon:Files},{id:"reviews",label:"Reviews",icon:ClipboardCheck},{id:"workflows",label:"Workflows",icon:GitBranch},{id:"reports",label:"Reports",icon:ChartColumn},{id:"settings",label:"Administration",icon:Settings}] as const;
+import {LayoutDashboard,Building2,ShieldCheck,Files,ClipboardCheck,FolderArchive,GitBranch,ChartColumn,Settings,Menu,X} from "lucide-react";
+export type Page = "dashboard"|"suppliers"|"repository"|"compliance"|"documents"|"reviews"|"workflows"|"reports"|"settings";
+const nav = [{id:"dashboard",label:"Overview",icon:LayoutDashboard},{id:"suppliers",label:"Suppliers",icon:Building2},{id:"repository",label:"Repository",icon:FolderArchive},{id:"compliance",label:"Compliance",icon:ShieldCheck},{id:"documents",label:"Documents",icon:Files},{id:"reviews",label:"Reviews",icon:ClipboardCheck},{id:"workflows",label:"Workflows",icon:GitBranch},{id:"reports",label:"Reports",icon:ChartColumn},{id:"settings",label:"Administration",icon:Settings}] as const;
 export function Shell({page,onNavigate,children}:{page:Page;onNavigate:(p:Page)=>void;children:ReactNode}){
 const [open,setOpen]=useState(false);
 const select=(p:Page)=>{onNavigate(p);setOpen(false)};
