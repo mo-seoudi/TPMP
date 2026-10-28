@@ -19,3 +19,14 @@ Complete permission-resource matrix, MFA policy, SSO provider, admin break-glass
 3. Module contract respected; no unrelated file/component modifications.
 4. Database/API tests, UI interaction tests and regression tests pass.
 5. Scope, test results, limitations and release state documented.
+
+
+## Approved school/group and supplier-user access behavior — 28 October 2026
+- A user may be assigned to one school, explicitly selected multiple schools, or a group role with explicitly scoped school grants. Group membership never automatically grants all child-school access.
+- The active school/workspace must be prominently visible. Switching workspace changes data context, available actions and approval queues; server authorization is checked for every operation, not just UI navigation.
+- School-side authorized administrators may create and edit permitted supplier details and upload/replace supplier and employee documents on behalf of suppliers. Record actor, acting organization, supplier, target school, version and approval outcome.
+- Supplier users have their own identities and supplier membership. A school or authorized group administrator invites a named supplier user and grants relationship-specific access and actions. A supplier user can have access to multiple schools through separate explicit grants.
+- Supplier users cannot self-grant school access, see unrelated school records, or bypass school-specific compliance decisions. Supplier self-service does not imply full bilateral partnership management.
+- Shared company-profile editing and school-specific relationship editing are distinct permissions. Sensitive changes create proposed versions and retain previously approved snapshots until approval.
+- Revocation immediately removes effective access to the affected school without necessarily removing the supplier user's access to other authorized schools.
+- Exact permission matrix, invitation UX and grant-administration API remain implementation details to specify and test.
