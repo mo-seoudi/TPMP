@@ -1,13 +1,13 @@
 import postgres from "postgres";
 import type {VercelRequest,VercelResponse} from "@vercel/node";
 
-const sql=postgres(process.env.TPMP_DATABASE_URL||"",{max:2,prepare:false,ssl:"require"});
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const send=(res:VercelResponse,code:number,data:unknown)=>res.status(code).json(data);
 export default async function handler(req:VercelRequest,res:VercelResponse){
  res.setHeader("Cache-Control","no-store");
  if(!["GET","POST"].includes(req.method||""))return send(res,405,{error:"Method not allowed"});
  if(!process.env.TPMP_DATABASE_URL||!process.env.TPMP_SUPABASE_URL||!process.env.TPMP_SUPABASE_ANON_KEY)return send(res,503,{error:"Development backend not configured"});
+ const sql=postgres(process.env.TPMP_DATABASE_URL!,{max:2,prepare:false,ssl:"require",idle_timeout:10});
  const auth=req.headers.authorization||"";
  if(!auth.startsWith("Bearer "))return send(res,401,{error:"Sign in required"});
  try{
