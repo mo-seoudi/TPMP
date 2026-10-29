@@ -1,0 +1,28 @@
+name: F1 React build
+on:
+  push:
+    branches: [feat/f1-react-app]
+    paths: ['app/**', '.github/workflows/f1-build.yml']
+  pull_request:
+    paths: ['app/**', '.github/workflows/f1-build.yml']
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tpmp-f1-web-build
+          path: app/dist/
+          if-no-files-found: error
+          retention-days: 14
