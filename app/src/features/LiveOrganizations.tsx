@@ -3,7 +3,7 @@ import {createClient,type Session} from "@supabase/supabase-js";
 import {ArrowLeft,LoaderCircle,LockKeyhole,Plus,RefreshCw,Search,ShieldCheck} from "lucide-react";
 const url=import.meta.env.VITE_TPMP_SUPABASE_URL as string|undefined;
 const key=import.meta.env.VITE_TPMP_SUPABASE_ANON_KEY as string|undefined;
-const client=url&&key?createClient(url,key):null;
+export const client=url&&key?createClient(url,key):null;
 type Org={id:string;name:string;kind:"group"|"school"|"supplier";parentId:string|null};
 type Rel={id:string;schoolId:string;supplierId:string;status:string};
 export function LiveOrganizations({view="organizations"}:{view?:"organizations"|"relationships"}){
