@@ -1,6 +1,6 @@
 import {LiveUsers} from "./LiveUsers";
 import {useState} from "react";
-import {Activity,ArrowLeft,ArrowRight,Building2,GitBranch,LockKeyhole,Search,ShieldCheck} from "lucide-react";
+import {Activity,ArrowLeft,ArrowRight,Building2,GitBranch,LockKeyhole,Search,ShieldCheck,Users} from "lucide-react";
 import {LiveOrganizations} from "./LiveOrganizations";
 
 type Section="organizations"|"relationships"|"people"|"roles"|"security";
