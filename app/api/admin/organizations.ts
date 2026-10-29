@@ -53,9 +53,9 @@ export default async function handler(req:VercelRequest,res:VercelResponse){
   return send(res,400,{error:"Unknown action"});
  }catch(error){
   const e=error as {code?:string};
-  if(e.code==="ENOTFOUND"||e.code==="EAI_AGAIN")return send(res,503,{error:"Database host could not be resolved. Check the TPMP_DATABASE_URL hostname in Vercel Preview settings."});
-  if(e.code==="ECONNREFUSED"||e.code==="ETIMEDOUT")return send(res,503,{error:"Database connection unavailable. Verify the Supabase pooler host and connection settings."});
-  if(e.code==="28P01")return send(res,503,{error:"Database credentials rejected. Verify the database password in Vercel Preview settings."});
+  if(e.code==="ENOTFOUND"||e.code==="EAI_AGAIN")return send(res,503,{error:"Unable to load organization data. Please try again."});
+  if(e.code==="ECONNREFUSED"||e.code==="ETIMEDOUT")return send(res,503,{error:"Unable to load organization data. Please try again."});
+  if(e.code==="28P01")return send(res,503,{error:"Unable to load organization data. Please try again."});
   if(e.code==="23505")return send(res,409,{error:"Organization or relationship already exists. Review before linking."});
   if(e.code==="42501")return send(res,403,{error:"Not authorized"});
   if(e.code==="22023")return send(res,400,{error:"Invalid organization or relationship"});
